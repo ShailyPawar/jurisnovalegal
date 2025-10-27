@@ -1,0 +1,463 @@
+/* Team Page Styles */
+.team-page {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero Section */
+.team-hero {
+  /* position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2c4a6f 0%, #1e3a5f 100%);
+  overflow: hidden; */
+
+      position: relative;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(30, 58, 95, 0.96), rgba(69, 70, 73, 0.97)),
+              url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920') center/cover no-repeat;
+    overflow: hidden;
+    
+}
+
+.team-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 50%, rgba(30, 58, 95, 0.15) 0%, transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  animation: heroFloat 15s ease-in-out infinite;
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-15px, 10px) scale(1.05); }
+}
+
+.team-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 3rem 2rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.team-hero-content h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: #ffffff;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-shadow:  0 0 40px rgba(255, 215, 0, 0.4), 0 0 80px rgba(193, 154, 91, 0.3), 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.team-hero-content p {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Team Section */
+.team-section {
+  padding: 1 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+}
+
+.team-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.team-intro {
+  text-align: center;
+  margin-bottom: 5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-intro h2 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  color: #1e3a5f;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.team-intro h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #c19a5b, #ffd700);
+  border-radius: 2px;
+}
+
+.team-intro p {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.9;
+  margin-top: 2rem;
+}
+
+/* Team Grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Team Member Card */
+.team-member-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.team-member-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 30px 80px rgba(193, 154, 91, 0.25);
+}
+
+/* Member Image */
+.member-image-wrapper {
+  /* position: relative; */
+  height: 600px;
+  overflow: hidden;
+}
+
+.member-image {
+  width: 100%;
+  /* height: 100%; */
+  /* object-fit: cover; */
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-member-card:hover .member-image {
+  transform: scale(1.1);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 95, 0.9), rgba(193, 154, 91, 0.85));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.team-member-card:hover .social-icon {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.social-icon:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.social-icon:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.social-icon:hover {
+  background: #ffffff;
+  transform: translateY(-5px) scale(1.1);
+  border-color: #ffd700;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover svg {
+  color: #c19a5b;
+}
+
+/* Member Content */
+.member-content {
+  padding: 3rem 2.5rem;
+}
+
+.member-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.member-header h3 {
+  font-size: 2rem;
+  color: #1e3a5f;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.team-member-card:hover .member-header h3 {
+  color: #c19a5b;
+}
+
+.member-role {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #c19a5b, #ffd700);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(193, 154, 91, 0.3);
+}
+
+.member-desc {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Member Expertise */
+.member-expertise {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fffbf0 0%, #ffffff 100%);
+  border-radius: 15px;
+  border-left: 4px solid #c19a5b;
+}
+
+.member-expertise h4 {
+  font-size: 1.2rem;
+  color: #1e3a5f;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.member-expertise ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.member-expertise ul li {
+  padding: 0.6rem 0;
+  color: #666;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.member-expertise ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #c19a5b;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.member-expertise ul li:hover {
+  color: #333;
+  padding-left: 2rem;
+}
+
+.member-expertise ul li:hover::before {
+  transform: translateX(3px);
+}
+
+/* Member Contact */
+.member-contact {
+  margin-top: 2rem;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.8rem;
+  background: linear-gradient(135deg, #1e3a5f, #2c4a6f);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+}
+
+.contact-link:hover {
+  background: linear-gradient(135deg, #c19a5b, #ffd700);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(193, 154, 91, 0.4);
+}
+
+.contact-link svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.contact-link:hover svg {
+  transform: translateX(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .team-grid {
+    gap: 3rem;
+  }
+  
+  .member-image-wrapper {
+    height: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-hero {
+    min-height: 40vh;
+  }
+  
+  .team-section {
+    padding: 4rem 1.5rem;
+  }
+  
+  .team-intro {
+    margin-bottom: 3rem;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .member-image-wrapper {
+    height: 400px;
+  }
+  
+  .member-content {
+    padding: 2.5rem 2rem;
+  }
+  
+  .member-header h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-hero-content {
+    padding: 2rem 1rem;
+  }
+  
+  .team-section {
+    padding: 3rem 1rem;
+  }
+  
+  .team-grid {
+    gap: 2rem;
+  }
+  
+  .member-image-wrapper {
+    height: 350px;
+  }
+  
+  .member-content {
+    padding: 2rem 1.5rem;
+  }
+  
+  .member-header h3 {
+    font-size: 1.6rem;
+  }
+  
+  .member-role {
+    font-size: 0.9rem;
+    padding: 0.4rem 1rem;
+  }
+  
+  .member-desc {
+    font-size: 1rem;
+  }
+  
+  .member-expertise {
+    padding: 1.2rem;
+  }
+  
+  .social-links {
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .social-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-link {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+  }
+}

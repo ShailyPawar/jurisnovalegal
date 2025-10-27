@@ -1,0 +1,91 @@
+
+.contact-icons {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 1000;
+}
+
+/* Common styles for both icons */
+.icon-animate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  font-size: 26px;
+  color: #fff;
+  border-radius: 50%;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.icon-animate:hover {
+  transform: scale(1.1) translateY(-2px);
+}
+
+/* WhatsApp Icon */
+.whatsapp-icon {
+  background-color: #25d366;
+}
+
+.whatsapp-icon:hover {
+  background-color: #20ba5a;
+}
+
+/* Call Icon */
+.call-icon {
+  background-color: #007bff;
+}
+
+.call-icon:hover {
+  background-color: #0062d9;
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: absolute;
+  right: 70px;
+  background: #333;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.icon-animate:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+   /* Mobile Responsive */
+
+@media (max-width: 768px) {
+  .contact-icons {
+    bottom: 15px;
+    right: 15px;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .icon-animate {
+    width: 48px;
+    height: 48px;
+    font-size: 22px;
+  }
+
+  .tooltip {
+    display: none; /* Hide tooltips on mobile for cleaner UI */
+  }
+}
