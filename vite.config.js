@@ -10,4 +10,7 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    outDir: 'build', // ✅ this changes the output folder name from dist → build
+  },
 })
